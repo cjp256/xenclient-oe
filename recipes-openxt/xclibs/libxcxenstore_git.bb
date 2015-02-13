@@ -12,5 +12,5 @@ S = "${WORKDIR}/git/xcxenstore"
 
 ASNEEDED = ""
 
-inherit autotools
-inherit xenclient
+inherit autotools-brokensep pkgconfig xenclient
+
