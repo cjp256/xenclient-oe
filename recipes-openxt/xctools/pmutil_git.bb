@@ -14,6 +14,5 @@ S = "${WORKDIR}/git/pmutil"
 
 ASNEEDED = ""
 
-inherit autotools
-inherit xenclient
+inherit autotools xenclient pkgconfig
 
