@@ -82,7 +82,8 @@ RDEPENDS_${PN} = " \
     usb-modeswitch \
     upgrade-db \
     rpc-proxy \
-    dbd \
+    qtdbd \
+    qtdbd-tools \
     xenclient-language-sync \
     pci-dm-helper \
     atapi-pt-helper \
@@ -111,6 +112,8 @@ RDEPENDS_${PN} = " \
     dm-agent \
     xenmgr \
 "
+
+PR="r501"
 
 # OE upgrade - temporarly disabled:
 
