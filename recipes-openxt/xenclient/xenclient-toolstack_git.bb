@@ -4,7 +4,7 @@ LICENSE = "LGPLv2.1"
 LIC_FILES_CHKSUM = "file://COPYING;md5=321bf41f280cf805086dd5a720b37785"
 DEPENDS += " ocaml-cross ocaml-dbus ocaml-camomile xen-tools"
 RDEPENDS = " xen-tools-xenstore-utils "
-RDEPENDS_xenclient-ndvm += " db-tools"
+RDEPENDS_xenclient-ndvm += " qtdbd-tools qtdbd-tools-v4v-wrappers "
 
 DEPENDS_append_xenclient-nilfvm += " ${@deb_bootstrap_deps(d)} "
 
@@ -84,3 +84,5 @@ do_install_append_xenclient-nilfvm() {
 
 # Avoid GNU_HASH check for the ocaml binaries
 INSANE_SKIP_${PN} = "1"
+
+PR="r2"
