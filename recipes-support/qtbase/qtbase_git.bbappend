@@ -1,10 +1,5 @@
-PACKAGECONFIG[libinput] = ""
-
 PACKAGECONFIG = " \
     release \
-    jpeg \
-    libpng \
-    zlib \
     dbus \
     udev \
     evdev \
@@ -13,6 +8,7 @@ PACKAGECONFIG = " \
     "
 
 QT_CONFIG_FLAGS += " \
-    -qpa offscreen \
-    -dbus \
+    -no-qpa-platform-guard \
     "
+
+PRINC := "${@int(PRINC) + 3}"
