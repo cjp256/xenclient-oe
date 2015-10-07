@@ -1,14 +1,13 @@
 PACKAGECONFIG = " \
     release \
     dbus \
-    udev \
-    evdev \
     tools \
     libs \
     "
 
 QT_CONFIG_FLAGS += " \
     -no-qpa-platform-guard \
+    -no-gui \
     "
 
-PRINC := "${@int(PRINC) + 3}"
+PRINC := "${@int(PRINC) + 5}"
