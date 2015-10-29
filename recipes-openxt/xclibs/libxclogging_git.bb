@@ -11,5 +11,7 @@ CFLAGS_append = " -Wno-unused"
 
 S = "${WORKDIR}/git/xclogging"
 
+PARALLEL_MAKE = "-j 1"
+
 inherit autotools-brokensep pkgconfig xenclient
 
