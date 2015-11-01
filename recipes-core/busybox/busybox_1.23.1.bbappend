@@ -1,4 +1,4 @@
-PR .= ".1"
+PR .= ".2"
 
 FILESEXTRAPATHS_prepend := "${THISDIR}/${PN}-${PV}:"
 
@@ -27,22 +27,5 @@ do_install_append() {
     install -d ${D}${sysconfdir}/mdev
     install -m 0755 ${WORKDIR}/find-touchscreen.sh ${D}${sysconfdir}/mdev/
     install -m 0755 ${WORKDIR}/mdev ${D}${sysconfdir}/init.d/
-
-    # Don't let busybox add alternatives for items for which we use the full tools
-    # Need to try doing this via the defconfig file instead
-    grep -v '/sbin/ip' ${D}${sysconfdir}/busybox.links.nosuid > ${S}/busybox.links.nosuid.tmp
-    install -m 0644 ${S}/busybox.links.nosuid.tmp ${D}${sysconfdir}/busybox.links.nosuid
-
-    grep -v '/usr/bin/lspci' ${D}${sysconfdir}/busybox.links.nosuid > ${S}/busybox.links.nosuid.tmp
-    install -m 0644 ${S}/busybox.links.nosuid.tmp ${D}${sysconfdir}/busybox.links.nosuid
-
-    grep -v '/usr/bin/lsusb' ${D}${sysconfdir}/busybox.links.nosuid > ${S}/busybox.links.nosuid.tmp
-    install -m 0644 ${S}/busybox.links.nosuid.tmp ${D}${sysconfdir}/busybox.links.nosuid
-
-    # SELinux doesn't like busybox links
-    #install -d ${D}${base_sbindir}
-    #cp -a ${D}${base_bindir}/busybox.nosuid ${D}${base_sbindir}/udhcpc
-    #grep -v '/udhcpc' ${D}${sysconfdir}/busybox.links.nosuid > ${S}/busybox.links.nosuid.tmp
-    #install -m 0644 ${S}/busybox.links.nosuid.tmp ${D}${sysconfdir}/busybox.links.nosuid
 }
 
