@@ -11,6 +11,7 @@ SRC_URI = "git://${OPENXT_GIT_MIRROR}/vusb-daemon.git;protocol=${OPENXT_GIT_PROT
            file://xenclient-vusb.initscript \
            file://automake-foreign.patch \
            "
+CFLAGS_append += "-Wno-deprecated-declarations"
 
 EXTRA_OECONF += "--with-idldir=${STAGING_IDLDIR}"
 # workaround for broken configure.in
